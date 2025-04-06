@@ -1,0 +1,100 @@
+.page-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* full screen height */
+  background-color: #f0f2f5;
+  padding: 20px;
+}
+
+
+.add-food-container {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 30px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.07);
+}
+
+.add-food-container h2 {
+  text-align: center;
+  margin-bottom: 24px;
+  color: #333;
+  font-size: 26px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 8px;
+}
+
+.add-food-container h4 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  color: #555;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.food-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.form-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-section label {
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: #444;
+}
+
+.form-section input {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+  transition: border-color 0.3s ease;
+}
+
+.form-section input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 16px;
+}
+
+button[type='submit'] {
+  margin-top: 20px;
+  padding: 14px;
+  background-color: #28a745;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+}
+
+button[type='submit']:hover {
+  background-color: #218838;
+}
+
+.form-columns {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.form-left, .form-right {
+  flex: 1;
+  min-width: 300px;
+}
+

@@ -1,0 +1,67 @@
+.food-list {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.food-list h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+/* Increased specificity by targeting the unique class within .food-list */
+.food-list .unique-food-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+
+.food-card {
+  position: relative;
+  background-color: #f0f4f8;
+  color: #333;
+  border-radius: 16px;
+  padding: 1.5rem;
+  text-align: left;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease;
+}
+
+.food-card:hover {
+  transform: translateY(-5px);
+}
+
+.food-card h3 {
+  margin-top: 0;
+  font-size: 1.4rem;
+  color: #222;
+}
+
+.food-card ul {
+  padding-left: 1rem;
+  margin-top: 0.5rem;
+}
+
+.food-card li {
+  margin-bottom: 0.3rem;
+}
+
+.delete-btn {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  background: transparent;
+  border: none;
+  font-size: 1.2rem;
+  color: #999;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.delete-btn:hover {
+  color: #e74c3c;
+}
