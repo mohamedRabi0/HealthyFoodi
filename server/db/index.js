@@ -1,11 +1,12 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
+require('dotenv').config();
 
-mongoose.connect('mongodb://127.0.0.1:27017/cinema', { useNewUrlParser: true})
-    .catch(e => {
-        console.error('Connection error', e.message)
-    })
+const uri = process.env.MONGO_URL || 'mongodb://127.0.0.1:27017/cinema';
 
+mongoose.connect(uri, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+ 
 
-const db = mongoose.connection
-
-module.exports = db
+module.exports = mongoose.connection;

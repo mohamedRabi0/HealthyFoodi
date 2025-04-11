@@ -7,10 +7,10 @@ const Profile = () => {
 
   useEffect(() => {
     const token = localStorage.getItem('token');
-    console.log('📦 Retrieved token:', token); // <-- Debug log
+    console.log('Retrieved token:', token); // <-- Debug log
   
     if (!token) {
-      console.warn('⛔ No token found in localStorage');
+      console.warn('No token found in localStorage');
       return;
     }
   
@@ -20,11 +20,11 @@ const Profile = () => {
       },
     })
     .then((res) => {
-      console.log('✅ User data:', res.data);
+      console.log('User data:', res.data);
       setUser(res.data);
     })
     .catch((err) => {
-      console.error('❌ Error fetching user profile', err);
+      console.error('Error fetching user profile', err);
     });
   }, []);
   

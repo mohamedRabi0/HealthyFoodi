@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import "./Auth.css"; // ✅ Make sure this import exists
+import "./Auth.css"; 
 
-const Register = ({ setIsLoggedIn }) => {
+const Register = ({ setToken }) => {
   const [formData, setFormData] = useState({ username: "", password: "" });
   const navigate = useNavigate();
 
@@ -14,12 +14,12 @@ const Register = ({ setIsLoggedIn }) => {
     e.preventDefault();
     try {
       const res = await axios.post("http://localhost:3001/api/register", formData);
-      alert("✅ Registration successful!");
+      alert("Registration successful!");
       localStorage.setItem("token", res.data.token);
-      setIsLoggedIn(true);
+      setToken(res.data.token); // instead of setIsLoggedIn(true)
       navigate("/add");
     } catch (err) {
-      alert("❌ Registration failed");
+      alert("Registration failed");
       console.error(err);
     }
   };

@@ -45,7 +45,7 @@ const App = () => {
 
         <div className="content">
           <Routes>
-            <Route path="/register" element={<Register />} />
+            <Route path="/register" element={<Register setToken={setToken} />} />
             <Route path="/login" element={<Login setToken={setToken} />} />
             <Route path="/add" element={token ? <AddFood /> : <Login />} />
             <Route path="/food" element={token ? <FoodList /> : <Login />} />

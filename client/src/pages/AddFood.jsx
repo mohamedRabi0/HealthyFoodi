@@ -36,7 +36,7 @@ const AddFood = () => {
 
     try {
       await insertFood(payload);
-      alert('✅ Food added!');
+      alert('Food added!');
       setFood({
         name: '',
         location: '',
@@ -49,7 +49,7 @@ const AddFood = () => {
       });
     } catch (err) {
       console.error('Error adding food:', err);
-      alert('❌ Failed to add food');
+      alert('Failed to add food');
     }
   };
 

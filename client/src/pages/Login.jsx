@@ -17,7 +17,7 @@ const Login = ({ setToken }) => {
     try {
       const res = await axios.post('http://localhost:3001/api/login', form);
       localStorage.setItem('token', res.data.token);
-      setToken(res.data.token); // ✅ THIS updates nav immediately
+      setToken(res.data.token); // 
       navigate('/food');
     } catch (err) {
       setError('Invalid credentials');

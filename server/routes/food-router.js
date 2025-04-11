@@ -5,7 +5,7 @@ const FoodCtrl = require('../controllers/food-ctrl')
 const router = express.Router()
 const auth = require('../middleware/auth');
 
-router.post('/food', auth, FoodCtrl.addFood); // ✅ Protected route
+router.post('/food', auth, FoodCtrl.addFood); 
 router.put('/food/:id', auth, FoodCtrl.updateFood)
 router.delete('/food/:id', auth,  FoodCtrl.deleteFood)
 router.get('/food/:id', auth, FoodCtrl.getFoodById)
