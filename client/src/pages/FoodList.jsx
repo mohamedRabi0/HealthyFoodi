@@ -36,6 +36,7 @@ const FoodList = () => {
           foods.map((food) => (
             <div key={food._id} className="food-card">
               <button className="delete-btn" onClick={() => handleDelete(food._id)}>❌</button>
+              <p className="food-date">{new Date(food.createdAt).toLocaleString()}</p>
               <h3>{food.name}</h3>
               <p><strong>Location:</strong> {food.location}</p>
               <p><strong>Rating:</strong> {food.rating}/10</p>

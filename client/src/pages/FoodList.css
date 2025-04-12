@@ -65,3 +65,11 @@
 .delete-btn:hover {
   color: #e74c3c;
 }
+
+.food-date {
+  position: absolute;
+  top: 10px;
+  right: 40px;
+  font-size: 0.8rem;
+  color: #666;
+}

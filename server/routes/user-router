@@ -1,6 +1,7 @@
 const express = require('express');
 const auth = require('../middleware/auth');
 const User = require('../models/User');
+const Food = require('../models/food-models'); // <-- make sure this is at the top
 
 const router = express.Router();
 
@@ -8,9 +9,36 @@ router.get('/me', auth, async (req, res) => {
   try {
     const user = await User.findById(req.user.id).select('-password');
     if (!user) return res.status(404).json({ error: 'User not found' });
-    res.json(user);
+
+    // 1. Get foods from the last 7 days
+    const oneWeekAgo = new Date();
+    oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
+
+    const foods = await Food.find({
+      user: req.user.id,
+      createdAt: { $gte: oneWeekAgo },
+    });
+
+    // 2. Aggregate nutrition
+    let weeklyNutrition = {
+      sugar: 0,
+      protein: 0,
+      calories: 0,
+      fat: 0,
+    };
+
+    foods.forEach(food => {
+      weeklyNutrition.sugar += food.nutrition.sugar || 0;
+      weeklyNutrition.protein += food.nutrition.protein || 0;
+      weeklyNutrition.calories += food.nutrition.calories || 0;
+      weeklyNutrition.fat += food.nutrition.fat || 0;
+    });
+
+    // 3. Send combined result
+    res.json({ ...user.toObject(), weeklyNutrition });
+
   } catch (err) {
-    console.error('❌ Error in /api/user/me:', err);
+    console.error('Error in /api/user/me:', err);
     res.status(500).json({ error: 'Server error' });
   }
 });

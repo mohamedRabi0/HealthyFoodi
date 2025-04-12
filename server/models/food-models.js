@@ -17,6 +17,6 @@ const Food = new Schema({
   rating: { type: Number, required: true },
   nutrition: { type: NutritionFacts, required: true }, // embed the subdocument
   user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true } // 🔗 Connect to user
-});
+}, { timestamps: true });
 
 module.exports = mongoose.model('Food', Food);

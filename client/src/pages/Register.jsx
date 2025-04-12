@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import "./Auth.css"; 
 
 const Register = ({ setToken }) => {
-  const [formData, setFormData] = useState({ username: "", password: "" });
+  const [formData, setFormData] = useState({ username: "", email:"", password: "" });
   const navigate = useNavigate();
 
   const handleChange = (e) =>
@@ -32,6 +32,13 @@ const Register = ({ setToken }) => {
           type="text"
           name="username"
           placeholder="Username"
+          onChange={handleChange}
+          required
+        />
+        <input
+          type="text"
+          name="email"
+          placeholder="email"
           onChange={handleChange}
           required
         />

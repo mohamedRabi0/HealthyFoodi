@@ -4,7 +4,7 @@ import './Auth.css';
 import { useNavigate } from 'react-router-dom';
 
 const Login = ({ setToken }) => {
-  const [form, setForm] = useState({ username: '', password: '' });
+  const [form, setForm] = useState({ username: '', email: '', password: '' });
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
@@ -33,6 +33,15 @@ const Login = ({ setToken }) => {
           name="username"
           placeholder="Username"
           value={form.username}
+          onChange={handleChange}
+          required
+        />
+
+        <input
+          type='text'
+          name='email'
+          placeholder='email'
+          value={form.email}
           onChange={handleChange}
           required
         />
